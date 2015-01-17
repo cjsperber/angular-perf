@@ -1,0 +1,23 @@
+{
+  "name": "angular-perf",
+  "main": "angular-perf.js",
+  "version": "1.0.0",
+  "authors": [
+    "C.J. Sperber"
+  ],
+  "description": "angular-perf is a set of wrapper directives and filters for AngularJS that provide for console-logged performance metrics and application activity.",
+  "keywords": [
+    "angular-perf",
+    "performance",
+    "metric"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/vendor/",
+    "test",
+    "tests"
+  ]
+}
