@@ -49,8 +49,7 @@ The perf-start and perf-stop directives support nesting as well.
 </html>
 ```
 
-The above HTML will console-log AngularJS digest cycle invocations. In other words, anytime AngularJS invokes a digest cycle,
-it will be console-logged.
+The above HTML will console-log AngularJS digest cycle invocations. In other words, anytime AngularJS invokes a digest cycle, console-logging occurs.
 
 ## Filters
 

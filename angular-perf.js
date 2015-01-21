@@ -13,13 +13,21 @@
             this._perfData = [];
 
             this.pushPerf = function () {
-                this._perfData.push(performance.now());
+                if (('performance' in window) && (typeof performance.now === 'function')) {
+                    this._perfData.push(performance.now());
+                } else {
+                    this._perfData.push(Date.now());
+                }
 
                 return this._perfData.length - 1;
             };
 
             this.popPerf = function () {
-                return performance.now() - this._perfData.pop();
+                if (('performance' in window) && (typeof performance.now === 'function')) {
+                    return performance.now() - this._perfData.pop();
+                } else {
+                    return Date.now() - this._perfData.pop();
+                }
             }
         });
 
