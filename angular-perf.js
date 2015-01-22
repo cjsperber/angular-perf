@@ -1,6 +1,6 @@
 /**!
  * angular-perf: AngularJS performance/activity notification directives and filters
- * @author  C.J. Sperber
+ * @author C.J. Sperber
  * @version 1.0.0
  */
 (function() {
@@ -16,7 +16,11 @@
                 if (('performance' in window) && (typeof performance.now === 'function')) {
                     this._perfData.push(performance.now());
                 } else {
-                    this._perfData.push(Date.now());
+                    try {
+                        this._perfData.push(Date.now());
+                    } catch(err) {
+                        return alert('your browser does not support angular-perf');
+                    }
                 }
 
                 return this._perfData.length - 1;
@@ -26,7 +30,9 @@
                 if (('performance' in window) && (typeof performance.now === 'function')) {
                     return performance.now() - this._perfData.pop();
                 } else {
-                    return Date.now() - this._perfData.pop();
+                    if (this._perfData.length > 0) {
+                        return Date.now() - this._perfData.pop();
+                    }
                 }
             }
         });
